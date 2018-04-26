@@ -5,7 +5,7 @@ import $ from 'jquery';
 
 class Header extends Component {
 
-    // // need to figureout the problem of sidenav 
+    // // ------------- need to figureout the problem of sidenav -------
     // componentDidMount() {
     //     $(document).ready(function(){
     //         $('.sidenav').sidenav();

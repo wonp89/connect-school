@@ -100,6 +100,17 @@ module.exports = app => {
         }
     });
 
+    //remove meetup from userInfo meetup list
+    app.post('/api/meetup/remove/:id', requireLogin, async (req, res) => {
+        const { id } = req.params;
+        //pull out meetup from userInfo
+        const userInfo = await UserInfoSchema.findById({ _id: req.user._userInfo })
+            userInfo.meetUp.pull(id)
+            userInfo.save()
+            .then(result => res.status(201).json(result))
+            .catch(err => res.status(500).send(err))
+    });
+
     app.post('/api/meetup/expired/:id', requireLogin, async (req, res) => {
         try {
             const { id } = req.params;

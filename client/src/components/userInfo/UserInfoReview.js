@@ -29,23 +29,13 @@ class UserInfo extends Component {
         )
     }
 
-    userInfoMeetUp() {
-        if (this.props.userInfo.meetUp) {
-            return this.props.userInfo.meetUp.map((meetUp, index) => {
-                return (
-                     <UserInfoMeeUp meetUp={meetUp} remove={this.props.quitMeetUps(meetUp._id)} />
-                )
-            })
-        }
-        return <h3>You haven't joined any meet ups yet</h3>
-    }
-
 
     render() {
+
         return (
             <div>
                 {this.renderReview()}
-                {this.userInfoMeetUp()}
+                <UserInfoMeeUp />
             </div>
         )
     }

@@ -18,7 +18,8 @@ class App extends Component {
     this.props.fetchUserInfo();
   }
 
-  //empty obeject will be considered as null
+  // if user already have user information, it will redirect to userinfoReview comopnent
+  // require "this.props.fetchUserInfo()" to check if userInformation exist
   userInfoSaved = () => !this.props.userInfo.username ? UserInfoForm : UserInfo
 
   render() {

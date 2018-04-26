@@ -4,6 +4,7 @@ import { SUBMIT_MEETUPS } from './types';
 import { JOIN_MEETUPS } from './types';
 import { FETCH_SINGLE_MEETUP } from './types';
 import { QUIT_MEETUPS } from './types';
+import { REMOVE_MEETUPS } from './types';
 import { EXPIRED_MEETUPS } from './types';
 
 export const submitMeetUps = (values) =>
@@ -55,6 +56,17 @@ export const quitMeetUps = (id) =>
             console.log(err);
         }
     }
+
+//from user info
+export const removeMeetUps = (id) =>
+async dispatch => {
+    try {
+        const res = await axios.post(`/api/meetup/remove/${id}`);
+        dispatch({ type: REMOVE_MEETUPS, payload: res.data });
+    } catch (err) {
+        console.log(err);
+    }
+}
 
 export const expiredMeetUps = (id) =>
     async dispatch => {
