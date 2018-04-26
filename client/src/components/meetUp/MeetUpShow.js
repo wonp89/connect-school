@@ -86,7 +86,7 @@ class MeetUpShow extends Component {
         }
 
         return (
-            <div key={this.meetUp._id}>
+            <div className="container" key={this.meetUp._id}>
                 {meetUpModal()}
                 {this.attendanceMessage()}
                 <div>

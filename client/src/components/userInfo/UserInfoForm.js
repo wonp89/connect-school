@@ -38,7 +38,7 @@ class UserInfoForm extends Component {
     render() {
         const { submitUserInfo, formValues } = this.props
         return (
-            <div>
+            <div className="container">
                 <form onSubmit={() => submitUserInfo(formValues.values)}>
                     {this.renderFields()}
                     <button type="submit" className="teal btn-flat right white-text">

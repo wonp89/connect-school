@@ -6,7 +6,7 @@ const UserInfoMeetUp = (props) => {
 
     const isExpired = () => {
         return props.meetUp.expired
-            ? <p className="red-text">EXPIRED</p>
+            ? <button type="submit" className="red btn-flat white-text" onClick={() => props.remove}>EXPIRED: Click to remove</button>
             : <Link to={"/meetup/" + props.meetUp._id}>MORE DETAIL</Link>
     }
 

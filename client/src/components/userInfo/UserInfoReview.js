@@ -33,7 +33,7 @@ class UserInfo extends Component {
         if (this.props.userInfo.meetUp) {
             return this.props.userInfo.meetUp.map((meetUp, index) => {
                 return (
-                     <UserInfoMeeUp meetUp={meetUp} />
+                     <UserInfoMeeUp meetUp={meetUp} remove={this.props.quitMeetUps(meetUp._id)} />
                 )
             })
         }
