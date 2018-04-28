@@ -13,3 +13,12 @@
     width: 100%;
     font-family: 'Roboto', sans-serif;
 }
+
+.center-button {
+    border-top: solid 1px grey;
+    text-align: center !important;
+}
+
+.modal-content > p > i {
+    margin-right: 5px;
+}

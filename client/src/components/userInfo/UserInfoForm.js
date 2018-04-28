@@ -3,6 +3,7 @@ import _ from 'lodash';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+import '../../assets/css/UserInfoForm.css';
 import UserInfoFormFields from './UserInfoFormFields';
 import UserInfoField from './UserInfoField';
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton'
@@ -38,7 +39,7 @@ class UserInfoForm extends Component {
     render() {
         const { submitUserInfo, formValues } = this.props
         return (
-            <div className="container">
+            <div className="container userInfo-form">
                 <form onSubmit={() => submitUserInfo(formValues.values)}>
                     {this.renderFields()}
                     <button type="submit" className="teal btn-flat right white-text">

@@ -2,3 +2,7 @@
     margin: 0;
     display: inline-block;
 }
+
+.update-user {
+    display:flex;
+}

@@ -21,18 +21,20 @@ const MeetUpFormReview = ({ onCancel, formValues, submitMeetUps }) => {
         <div>
             <h5>Please confirm your entries</h5>
             {reviewFields}
-            <button
-                className="yellow darken-3 white-text btn-flat"
-                onClick={onCancel}
-            >
-                BACK
-            </button>
-            <button
-                onClick={() => submitMeetUps(formValues)}
-                className="green btn-flat right white-text">
-                Save MeetUp
-                <i className="material-icons right">email</i>
-            </button>
+            <div id="buttons-container">
+                <button
+                    className="yellow darken-3 white-text btn-flat"
+                    onClick={onCancel}
+                >
+                    BACK
+                </button>
+                <button
+                    onClick={() => submitMeetUps(formValues)}
+                    className="green btn-flat right white-text">
+                    Save Event
+                    <i className="material-icons right">email</i>
+                </button>
+            </div>
         </div>
     )
 }

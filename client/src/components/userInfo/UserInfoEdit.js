@@ -42,14 +42,16 @@ class UserEditForm extends Component {
             <div>
                 <form onSubmit={() => editUserInfo(formValues.values)}>
                     {this.renderFields()}
-                    <button type="submit" className="teal btn-flat right white-text">
-                        SAVE
+                    <div id="buttons-container">
+                        <button
+                            className="yellow darken-3 white-text btn-flat"
+                            onClick={this.props.goBack}
+                        > Go Back </button>
+                        <button type="submit" className="teal btn-flat white-text">
+                            SAVE
                      <i className="material-icons right">done</i>
-                    </button>
-                    <button
-                        className="left yellow darken-3 white-text btn-flat"
-                        onClick={this.props.goBack}
-                    > Go Back </button>
+                        </button>
+                    </div>
                 </form>
             </div>
         )

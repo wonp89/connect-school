@@ -15,9 +15,9 @@ export default (state = [], action) => {
         default:
             // single page ajax request reaches to default
             if (action.type === JOIN_MEETUPS) {
-                state = [{ meetUp: action.payload, message: "You sucessfully joined this Meet Up" }];
+                state = [{ meetUp: action.payload, message: "You sucessfully joined this Meet Up", color: "green" }];
             } else if (action.type === QUIT_MEETUPS) {
-                state = [{ meetUp: action.payload, message: "You are dropped out from this Meet Up" }];
+                state = [{ meetUp: action.payload, message: "You are dropped out from this Meet Up", color: "red" }];
             } else if (action.type === SUBMIT_MEETUPS) {
                 window.location.assign('/meetup');
             } 

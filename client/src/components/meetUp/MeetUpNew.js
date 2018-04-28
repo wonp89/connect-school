@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { reduxForm } from 'redux-form';
 import MeetUpForm from './MeetUpForm';
+import '../../assets/css/MeetUpNew.css';
 import MeetUpFormReview from './MeetUpFormReview';
 
 class MeetUpNew extends Component {

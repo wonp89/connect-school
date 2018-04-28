@@ -1,5 +1,5 @@
 .card-action.expired {
-    background-color:#e96151;
+    background-color:#ebaba3;
 }
 
 .card-action.expired > p {
@@ -19,6 +19,5 @@
 
 .joined {
     display: flex;
-    align-items: center;
     justify-content: space-between;
 }

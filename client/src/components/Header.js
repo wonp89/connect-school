@@ -12,6 +12,13 @@ class Header extends Component {
     //       });
     // }
 
+    // must need userInfo to view and join the events
+    isUserInfo () {
+        if (this.props.auth._userInfo) {
+            return <Link to="/meetup"><li style={{ marginLeft: "20px" }}>Event</li></Link>
+        }
+    }
+
     renderContent() {
         switch (this.props.auth) {
             case null:
@@ -23,7 +30,7 @@ class Header extends Component {
                     <div>
                         <Link to="/"><li>Home</li></Link>
                         <Link to="/userInfo"><li style={{ marginLeft: "20px" }}>My Information</li></Link>
-                        <Link to="/meetup"><li style={{ marginLeft: "20px" }}>Event</li></Link>
+                        {this.isUserInfo()}
                         {/* <Link to="/meetup/new"><li style={{ marginLeft: "20px" }}>Meet Up New</li></Link> */}
                         <li><a href="/api/logout">Logout</a></li>
                     </div>

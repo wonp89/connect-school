@@ -1,6 +1,7 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux';
+import '../../assets/css/MeetUpForm.css';
 import DropdownList from 'react-widgets/lib/DropdownList'
 import moment from 'moment'
 import momentLocalizer from 'react-widgets-moment'
@@ -126,14 +127,14 @@ const MeetUpForm = ({ onMeetUpSubmit, handleSubmit, pristine, reset, submitting,
                     component={customFileInput} />
             </div> */}
 
-            <div>
-                <button type="button" disabled={pristine || submitting} onClick={reset}>Reset Values
+            <div id="buttons-container">
+                <button className="yellow darken-3 white-text btn-flat" type="button" disabled={pristine || submitting} onClick={reset}>Reset Values
             </button>
-            </div>
-            <button type="submit" className="teal btn-flat right white-text" >
-                SAVE
+                <button type="submit" className="teal btn-flat white-text" >
+                    SAVE
                      <i className="material-icons right">done</i>
-            </button>
+                </button>
+            </div>
         </form>
     )
 }

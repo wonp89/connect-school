@@ -20,31 +20,34 @@ class UserInfo extends Component {
             <div>
                 <ul class="collection with-header">
                     <li class="collection-header">
-                        <h4>Your Information</h4>
+                        <h4>USER INFORMATION</h4>
                         <button
-                            className="yellow darken-3 white-text right btn-flat"
+                            className="yellow darken-3 white-text right btn-flat update-user"
                             onClick={this.props.onEdit}
-                        > EDIT </button>
+                        >
+                        UPDATE INFO
+                        <i class="material-icons">create</i>
+                        </button>
                     </li>
                     <li class="collection-item avatar">
                         <i class="material-icons circle red">account_circle</i>
-                        <span class="title">USERNAME</span>
-                        <p class="red-text">{personInfo.username}</p>
+                        <span class="title red-text">USERNAME</span>
+                        <p>{personInfo.username}</p>
                     </li>
                     <li class="collection-item avatar">
                         <i class="material-icons circle red">assignment_ind</i>
-                        <span class="title">CURRENT STATE</span>
-                        <p class="red-text">{personInfo.currentState}</p>
+                        <span class="title red-text">CURRENT STATE</span>
+                        <p>{personInfo.currentState}</p>
                     </li>
                     <li class="collection-item avatar">
                         <i class="material-icons circle red">school</i>
-                        <span class="title">STUDYING</span>
-                        <p class="red-text">{personInfo.studying}</p>
+                        <span class="title red-text">STUDYING</span>
+                        <p>{personInfo.studying}</p>
                     </li>
                     <li class="collection-item avatar">
                         <i class="material-icons circle red">email</i>
-                        <span class="title">EMAIL</span>
-                        <p class="red-text">{personInfo.email}</p>
+                        <span class="title red-text">EMAIL</span>
+                        <p>{personInfo.email}</p>
                     </li>
                 </ul>
             </div>

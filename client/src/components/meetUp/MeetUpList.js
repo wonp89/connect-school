@@ -66,7 +66,7 @@ class MeetUpsList extends Component {
         return (
             <button className="blue btn-flat right white-text create-new">
                 <Link className="white-text" to="/meetup/new">CREATE NEW EVENT</Link>
-                <i class="material-icons">create</i>
+                <i class="right material-icons">create</i>
             </button>
         )
     }
