@@ -2,12 +2,12 @@ import _ from 'lodash';
 import moment from 'moment';
 import React from 'react';
 import { connect } from 'react-redux';
-import MeetUpFormFields from './MeetUpFormFields';
+import EventFormFields from './EventFormFields';
 import * as actions from '../../actions';
 
-const MeetUpFormReview = ({ onCancel, formValues, submitMeetUps }) => {
+const EventFormReview = ({ onCancel, formValues, submitEvent }) => {
 
-    const reviewFields = _.map(MeetUpFormFields, ({ name, label }) => {
+    const reviewFields = _.map(EventFormFields, ({ name, label }) => {
         return (
             <div>
                 <label>{label}</label>
@@ -29,7 +29,7 @@ const MeetUpFormReview = ({ onCancel, formValues, submitMeetUps }) => {
                     BACK
                 </button>
                 <button
-                    onClick={() => submitMeetUps(formValues)}
+                    onClick={() => submitEvent(formValues)}
                     className="green btn-flat right white-text">
                     Save Event
                     <i className="material-icons right">email</i>
@@ -39,6 +39,6 @@ const MeetUpFormReview = ({ onCancel, formValues, submitMeetUps }) => {
     )
 }
 
-const mapStateToProps = (state) => ({ formValues: state.form.MeetUpForm.values });
+const mapStateToProps = (state) => ({ formValues: state.form.EventForm.values });
 
-export default connect(mapStateToProps, actions)(MeetUpFormReview);
+export default connect(mapStateToProps, actions)(EventFormReview);

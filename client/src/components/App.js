@@ -9,9 +9,9 @@ import Footer from './Footer'
 import Welcome from './Welcome';
 import UserInfoForm from './userInfo/UserInfoForm';
 import UserInfo from './userInfo/UserInfo';
-import MeetUpNew from './meetUp/MeetUpNew';
-import MeetUpList from './meetUp/MeetUpList';
-import MeetUpShow from './meetUp/MeetUpShow';
+import EventNew from './event/EventNew';
+import EventList from './event/EventList';
+import EventShow from './event/EventShow';
 
 class App extends Component {
   componentDidMount() {
@@ -31,9 +31,9 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Welcome} />
             <Route exact path="/userInfo" component={this.userInfoSaved()} />
-            <Route exact path="/meetup" component={MeetUpList} />
-            <Route exact path="/meetup/new" component={MeetUpNew} />
-            <Route exact path="/meetup/:id" component={MeetUpShow} />
+            <Route exact path="/event" component={EventList} />
+            <Route exact path="/event/new" component={EventNew} />
+            <Route exact path="/event/:id" component={EventShow} />
           </Switch>
           <Footer />
         </div>

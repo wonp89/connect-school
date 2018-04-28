@@ -1,7 +1,7 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux';
-import '../../assets/css/MeetUpForm.css';
+import '../../assets/css/EventForm.css';
 import DropdownList from 'react-widgets/lib/DropdownList'
 import moment from 'moment'
 import momentLocalizer from 'react-widgets-moment'
@@ -62,10 +62,10 @@ const inputField = ({ input, meta: { touched, error, warning } }) => (
 // };
 
 
-const MeetUpForm = ({ onMeetUpSubmit, handleSubmit, pristine, reset, submitting, formValues }) => {
+const EventForm = ({ onEventSubmit, handleSubmit, pristine, reset, submitting, formValues }) => {
 
     return (
-        <form onSubmit={handleSubmit(values => onMeetUpSubmit())} enctype="multipart/form-data">
+        <form onSubmit={handleSubmit(values => onEventSubmit())} enctype="multipart/form-data">
             <div>
                 <label>Schools</label>
                 <Field
@@ -139,8 +139,8 @@ const MeetUpForm = ({ onMeetUpSubmit, handleSubmit, pristine, reset, submitting,
     )
 }
 
-const mapStateToProps = (state) => ({ formValues: state.form.MeetUpForm });
+const mapStateToProps = (state) => ({ formValues: state.form.EventForm });
 
-connect(mapStateToProps)(MeetUpForm);
+connect(mapStateToProps)(EventForm);
 
-export default reduxForm({ form: 'MeetUpForm', destroyOnUnmount: false })(MeetUpForm)
+export default reduxForm({ form: 'EventForm', destroyOnUnmount: false })(EventForm)

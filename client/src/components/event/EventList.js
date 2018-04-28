@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import '../../assets/css/MeetUpList.css';
+import '../../assets/css/EventList.css';
 import * as actions from '../../actions';
 
-import MeetUpAll from './MeetUpAll'
+import EventAll from './EventAll'
 import { Link } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 
-class MeetUpsList extends Component {
+class EventList extends Component {
     constructor() {
         super()
         this.state = { query: "", schools: ['UBC', 'SFU', 'EMILY CARR'] };
@@ -22,23 +22,23 @@ class MeetUpsList extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchMeetUps();
+        this.props.fetchEvents();
     }
 
     //show expired message  
     componentDidUpdate() {
-        this.props.meetUp.map(meetup => {
-            if (Date.parse(meetup.date) < new Date() && !meetup.expired) {
-                this.props.expiredMeetUps(meetup._id);
+        this.props.event.map(event => {
+            if (Date.parse(event.date) < new Date() && !event.expired) {
+                this.props.expiredEvents(event._id);
             }
         })
     }
 
-    //Render one or all meet up
-    renderMeetUp = () => {
-        return this.props.meetUp.filter(meetUp => meetUp.school.toLowerCase().includes(this.state.query.toLowerCase()))
-            .reverse().map(meetUp =>
-                < MeetUpAll meetUp={meetUp} id={meetUp._id} />
+    //Render one or all event 
+    renderEvents = () => {
+        return this.props.event.filter(event => event.school.toLowerCase().includes(this.state.query.toLowerCase()))
+            .reverse().map(event =>
+                < EventAll event={event} id={event._id} />
             )
     }
 
@@ -49,7 +49,7 @@ class MeetUpsList extends Component {
         })
     }
 
-    //selection for listing meetup by school names
+    //selection for listing event by school names
     showNameSelection() {
         return (
             <MuiThemeProvider>
@@ -62,10 +62,10 @@ class MeetUpsList extends Component {
         )
     }
 
-    meetUpNew() {
+    eventNew() {
         return (
             <button className="blue btn-flat right white-text create-new">
-                <Link className="white-text" to="/meetup/new">CREATE NEW EVENT</Link>
+                <Link className="white-text" to="/event/new">CREATE NEW EVENT</Link>
                 <i class="right material-icons">create</i>
             </button>
         )
@@ -75,13 +75,13 @@ class MeetUpsList extends Component {
         return (
             <div className="container">
                 {this.showNameSelection()}
-                {this.meetUpNew()}
-                {this.renderMeetUp()}
+                {this.eventNew()}
+                {this.renderEvents()}
             </div>
         )
     }
 }
 
-const mapStateToProps = ({ meetUp, auth }) => ({ meetUp, auth });
+const mapStateToProps = ({ event, auth }) => ({ event, auth });
 
-export default connect(mapStateToProps, actions)(MeetUpsList);
+export default connect(mapStateToProps, actions)(EventList);

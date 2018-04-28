@@ -6,7 +6,7 @@ const UserInfoSchema = mongoose.model('UserInfo')
 module.exports = app => {
 
     app.get('/api/userInfo', requireLogin, (req, res) => {
-        UserInfoSchema.findById({ _id: req.user._userInfo }).populate('meetUp', ['school', 'title', 'location', 'date', 'expired']).exec()
+        UserInfoSchema.findById({ _id: req.user._userInfo }).populate('event', ['school', 'title', 'location', 'date', 'expired']).exec()
         .then(result => res.status(201).json(result))
         .catch(err => res.status(500).send(err))
     })

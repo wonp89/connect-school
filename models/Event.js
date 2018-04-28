@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const MeetUpsSchema = new Schema({
+const EventSchema = new Schema({
     school: String,
     title: String,
     body: String,
@@ -9,9 +9,9 @@ const MeetUpsSchema = new Schema({
     createdBy: String,
     date: Date,
     expired: { type: Boolean, default: false },
-    attending: [{type: Schema.Types.ObjectId, ref: 'UserInfo'}],   
+    joined: [{type: Schema.Types.ObjectId, ref: 'UserInfo'}],   
     posted: Date,
     _creator: { type: Schema.Types.ObjectId, ref: 'UserInfo' }
 });
 
-mongoose.model('MeetUps', MeetUpsSchema);
+mongoose.model('Event', EventSchema);

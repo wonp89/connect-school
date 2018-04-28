@@ -2,10 +2,10 @@ export const FETCH_USER = 'fetch_user';
 export const FETCH_USER_INFO = 'fetch_user_info';
 export const EDIT_USER_INFO = 'edit_user_info';
 
-export const FETCH_MEETUPS = 'fetch_meetups';
-export const SUBMIT_MEETUPS = 'submit_meetups';
-export const FETCH_SINGLE_MEETUP = 'fetch_single_meetups';
-export const JOIN_MEETUPS = 'join_meetups';
-export const QUIT_MEETUPS = 'quit_meetups';
-export const REMOVE_MEETUPS = 'remove_meetups';
-export const EXPIRED_MEETUPS = 'expired_meetups';
+export const FETCH_EVENTS = 'fetch_events';
+export const SUBMIT_EVENT = 'submit_event';
+export const FETCH_SINGLE_EVENT = 'fetch_single_event';
+export const JOIN_EVENT = 'join_event';
+export const QUIT_EVENT = 'quit_event';
+export const REMOVE_EVENT = 'remove_event';
+export const EXPIRED_EVENTS = 'expired_events';

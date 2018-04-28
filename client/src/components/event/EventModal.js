@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import '../../assets/css/MeetUpModal.css'
+import '../../assets/css/EventModal.css'
 import $ from "jquery";
 
-class MeetUpModal extends Component {
-    constructor({ message, meetUp, color }) {
+class EventModal extends Component {
+    constructor({ message, event, color }) {
         super()
         this.message = message;
-        this.meetUp = meetUp.meetUp;
+        this.event = event.event;
         this.color = color;
     }
 
@@ -23,28 +23,28 @@ class MeetUpModal extends Component {
                 <div id="modal1" className="modal">
                     <div className="modal-content">
                         <h6 className={`${this.color}-text center`}>{this.message}</h6>
-                        <h5>{this.meetUp.title}</h5>
+                        <h5>{this.event.title}</h5>
                         <p>
                             <i class="left material-icons">account_balance</i>
-                            <span>{this.meetUp.school}</span>
+                            <span>{this.event.school}</span>
                         </p>
                         <p>
                             <i class="left material-icons">announcement</i>
-                            <span>{this.meetUp.body}</span>
+                            <span>{this.event.body}</span>
                         </p>
                         <p>
                             <i class="left material-icons">place</i>
-                            <span>{this.meetUp.location}</span>
+                            <span>{this.event.location}</span>
                         </p>
                         <p>
                             <i class="left material-icons">date_range</i>
-                            <span>{moment(this.meetUp.date).format('MMMM Do YYYY, h:mm a')}</span>
+                            <span>{moment(this.event.date).format('MMMM Do YYYY, h:mm a')}</span>
                         </p>
                     </div>
                     <div className="modal-footer center-button">
                         <button
                             className="yellow darken-3 btn-flat"
-                        ><a className="white-text" href="/meetUp">Go Back To the List</a></button>
+                        ><a className="white-text" href="/event">Go Back To the List</a></button>
                     </div>
                 </div>
             </div>
@@ -52,4 +52,4 @@ class MeetUpModal extends Component {
     }
 }
 
-export default MeetUpModal;
+export default EventModal;

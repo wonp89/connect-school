@@ -6,7 +6,7 @@ const UserInfoSchema = new Schema({
   currentState: String,
   studying: String,
   email: String,
-  meetUp: [{type: Schema.Types.ObjectId, ref: 'MeetUps'}],
+  event: [{type: Schema.Types.ObjectId, ref: 'Event'}],
   _user: { type: Schema.Types.ObjectId, ref: 'User' }
 });
 

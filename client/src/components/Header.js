@@ -15,7 +15,7 @@ class Header extends Component {
     // must need userInfo to view and join the events
     isUserInfo () {
         if (this.props.auth._userInfo) {
-            return <Link to="/meetup"><li style={{ marginLeft: "20px" }}>Event</li></Link>
+            return <Link to="/event"><li style={{ marginLeft: "20px" }}>Event</li></Link>
         }
     }
 
@@ -31,7 +31,7 @@ class Header extends Component {
                         <Link to="/"><li>Home</li></Link>
                         <Link to="/userInfo"><li style={{ marginLeft: "20px" }}>My Information</li></Link>
                         {this.isUserInfo()}
-                        {/* <Link to="/meetup/new"><li style={{ marginLeft: "20px" }}>Meet Up New</li></Link> */}
+                        {/* <Link to="/event/new"><li style={{ marginLeft: "20px" }}>Event New</li></Link> */}
                         <li><a href="/api/logout">Logout</a></li>
                     </div>
                 )
@@ -53,8 +53,8 @@ class Header extends Component {
                 <ul className="sidenav" id="mobile-demo">
                     <Link to="/"><li>Home</li></Link>
                     <Link to="/userInfo"><li>My Information</li></Link>
-                    <Link to="/meetup"><li>Meet Up</li></Link>
-                    {/* <Link to="/meetup/new"><li>Meet Up New</li></Link> */}
+                    <Link to="/event"><li>Event</li></Link>
+                    {/* <Link to="/event/new"><li>Event New</li></Link> */}
                     <li><a href="/api/logout">Logout</a></li>
                 </ul>
             </div>

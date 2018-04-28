@@ -8,7 +8,7 @@ const path = require('path');
 require('./models/User');
 require('./services/passport');
 require('./models/UserInfo')
-require('./models/MeetUps')
+require('./models/Event')
 
 mongoose.connect(keys.mongoURI)
 
@@ -25,7 +25,7 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 require('./routes/userInfoRoutes')(app);
-require('./routes/meetUpsRoutes')(app);
+require('./routes/EventRoutes')(app);
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT);

@@ -1,6 +1,6 @@
 // User & User Info 
 export * from './user';
 
-// MeetUp
-export * from './meetup';
+// event
+export * from './event';
 

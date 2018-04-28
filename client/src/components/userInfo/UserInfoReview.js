@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import UserInfoMeeUp from './UserInfoMeetUp';
+import UserInfoEvent from './UserInfoEvent';
 import '../../assets/css/UserInfoReview.css'
 import * as actions from '../../actions';
 
@@ -11,7 +11,7 @@ class UserInfo extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchMeetUps();
+        this.props.fetchEvents();
     }
 
     renderReview() {
@@ -61,7 +61,7 @@ class UserInfo extends Component {
         return (
             <div>
                 {this.renderReview()}
-                <UserInfoMeeUp />
+                <UserInfoEvent />
             </div>
         )
     }
