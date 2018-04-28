@@ -15,18 +15,18 @@ class UserInfoMeetUp extends Component {
         if (this.meetUp) {
             return this.meetUp.map((meetUp, index) => {
                 return (
-                    <div class="col s12 m6">
-                        <div class="card blue-grey darken-1">
-                            <div class="card-content white-text">
+                    <div class="col s12 m4">
+                        <div class="card card horizonta">
+                            <div class="card-content black-text">
                                 <span class="card-title">{meetUp.title}</span>
                                 <p>{meetUp.school}</p>
                                 <p>{meetUp.location}</p>
                                 <p>{moment(meetUp.date).format('MMMM Do YYYY, h:mm a')}</p>
                             </div>
-                            <div class="card-action">
+                            <div class="card-action center">
                                 {meetUp.expired
                                     ? <button type="submit" className="red btn-flat white-text" onClick={() => this.props.removeMeetUps(meetUp._id)}>EXPIRED: Click to remove</button>
-                                    : <Link to={"/meetup/" + this._id}>MORE DETAIL</Link>}
+                                    : <Link to={"/meetup/" + meetUp._id}>MORE DETAIL</Link>}
                             </div>
                         </div>
                     </div>
@@ -40,7 +40,8 @@ class UserInfoMeetUp extends Component {
 
         return (
             <div class="row">
-                <h3>list of meet ups</h3>
+                <h3 className="center">Joined Events</h3>
+                <hr/>
                 {this.renderMeetUp()}
             </div>
         )

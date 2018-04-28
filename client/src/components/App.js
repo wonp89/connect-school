@@ -5,6 +5,7 @@ import * as actions from '../actions';
 
 //components
 import Header from './Header'
+import Footer from './Footer'
 import Welcome from './Welcome';
 import UserInfoForm from './userInfo/UserInfoForm';
 import UserInfo from './userInfo/UserInfo';
@@ -34,6 +35,7 @@ class App extends Component {
             <Route exact path="/meetup/new" component={MeetUpNew} />
             <Route exact path="/meetup/:id" component={MeetUpShow} />
           </Switch>
+          <Footer />
         </div>
       </BrowserRouter>
     );

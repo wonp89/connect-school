@@ -1,0 +1,24 @@
+.card-action.expired {
+    background-color:#e96151;
+}
+
+.card-action.expired > p {
+   margin: 0;
+}
+
+.card-action.not-expired {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color:white;
+}
+
+.expired-content {
+    opacity: 0.6;
+}
+
+.joined {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

@@ -23,8 +23,8 @@ class Header extends Component {
                     <div>
                         <Link to="/"><li>Home</li></Link>
                         <Link to="/userInfo"><li style={{ marginLeft: "20px" }}>My Information</li></Link>
-                        <Link to="/meetup"><li style={{ marginLeft: "20px" }}>Meet Up</li></Link>
-                        <Link to="/meetup/new"><li style={{ marginLeft: "20px" }}>Meet Up New</li></Link>
+                        <Link to="/meetup"><li style={{ marginLeft: "20px" }}>Event</li></Link>
+                        {/* <Link to="/meetup/new"><li style={{ marginLeft: "20px" }}>Meet Up New</li></Link> */}
                         <li><a href="/api/logout">Logout</a></li>
                     </div>
                 )
@@ -35,7 +35,7 @@ class Header extends Component {
         return (
             <div>
                 <nav>
-                    <div className="nav-wrapper">
+                    <div className="teal nav-wrapper">
                         <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
                         <ul className="hide-on-med-and-down">
                             {this.renderContent()}
@@ -47,7 +47,7 @@ class Header extends Component {
                     <Link to="/"><li>Home</li></Link>
                     <Link to="/userInfo"><li>My Information</li></Link>
                     <Link to="/meetup"><li>Meet Up</li></Link>
-                    <Link to="/meetup/new"><li>Meet Up New</li></Link>
+                    {/* <Link to="/meetup/new"><li>Meet Up New</li></Link> */}
                     <li><a href="/api/logout">Logout</a></li>
                 </ul>
             </div>

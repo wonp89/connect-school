@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import '../../assets/css/MeetUpList.css';
 import * as actions from '../../actions';
+
 import MeetUpAll from './MeetUpAll'
+import { Link } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
@@ -50,7 +53,7 @@ class MeetUpsList extends Component {
     showNameSelection() {
         return (
             <MuiThemeProvider>
-                <DropDownMenu value={this.state.query} onChange={this.filterSchool} style={{ width: '200px' }}>
+                <DropDownMenu value={this.state.query} onChange={this.filterSchool}id="drop-down-menu">
                     <MenuItem value="" primaryText="All" />
                     {this.state.schools.map(names =>
                         <MenuItem value={names} primaryText={names} />)}
@@ -59,10 +62,20 @@ class MeetUpsList extends Component {
         )
     }
 
+    meetUpNew() {
+        return (
+            <button className="blue btn-flat right white-text create-new">
+                <Link className="white-text" to="/meetup/new">CREATE NEW EVENT</Link>
+                <i class="material-icons">create</i>
+            </button>
+        )
+    }
+
     render() {
         return (
             <div className="container">
                 {this.showNameSelection()}
+                {this.meetUpNew()}
                 {this.renderMeetUp()}
             </div>
         )

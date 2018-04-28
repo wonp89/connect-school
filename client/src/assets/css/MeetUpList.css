@@ -1,0 +1,9 @@
+.create-new {
+    margin-top: 15px;
+    align-items: center;
+    display: flex;
+}
+
+#drop-down-menu {
+    width: 200px !important;
+}
