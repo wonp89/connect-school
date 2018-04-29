@@ -29,10 +29,9 @@ class Header extends Component {
                 return (
                     <div>
                         <Link to="/"><li>Home</li></Link>
-                        <Link to="/userInfo"><li style={{ marginLeft: "20px" }}>My Information</li></Link>
                         {this.isUserInfo()}
-                        {/* <Link to="/event/new"><li style={{ marginLeft: "20px" }}>Event New</li></Link> */}
-                        <li><a href="/api/logout">Logout</a></li>
+                        <li className="right"><a href="/api/logout">Logout</a></li>
+                        <Link to="/userInfo" className="right"><li style={{ marginLeft: "20px" }}>My Information</li></Link>
                     </div>
                 )
         }
@@ -42,7 +41,7 @@ class Header extends Component {
         return (
             <div>
                 <nav>
-                    <div className="teal nav-wrapper">
+                    <div className="indigo lighten-1 nav-wrapper">
                         <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
                         <ul className="hide-on-med-and-down">
                             {this.renderContent()}

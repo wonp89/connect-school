@@ -12,12 +12,13 @@ module.exports = app => {
     })
 
     app.post('/api/userInfo', requireLogin, async (req, res) => {
-        const { currentState, username, studying } = req.body;
+        const { currentState, username, studying, school } = req.body;
         try {
             const userInfo = new UserInfoSchema({
                 currentState,
                 username,
                 studying,
+                school,
                 email: req.user.email,
                 _user: req.user.id
             });

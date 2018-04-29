@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../assets/css/EventAll.css';
+import moment from 'moment';
 import { Link } from 'react-router-dom';
 
 const EventAll = ({ event, id }) => {
@@ -21,8 +22,8 @@ const EventAll = ({ event, id }) => {
         return (
             <div className="card-action not-expired">
                 <span className="red-text joined">
-                <i class="material-icons">account_circle</i>
-                JOINED: {event.joined.length}
+                <i class="left material-icons">account_circle</i>
+                Joined: {event.joined.length}
                 </span>
                 <Link to={"/event/" + id} className="right waves-effect waves-light btn">Show</Link>
             </div>
@@ -34,9 +35,9 @@ const EventAll = ({ event, id }) => {
             <div className="card grey lighten-5" key={event._id}>
                 <div className={`card-content ${expiredColor()}`}>
                     <span className="card-title">
-                        <p>{event.school}</p>
                         <p>{event.title}</p>
-                        <p>{new Date(event.date).toLocaleDateString()}</p>
+                        <p><i class="left material-icons">account_balance</i>{event.school}</p>
+                        <p><i class="left material-icons">timer</i>Expire {moment(event.date).fromNow()}</p>
                     </span>
                 </div>
                 {isExpired()}

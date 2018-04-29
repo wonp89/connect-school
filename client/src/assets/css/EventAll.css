@@ -21,3 +21,7 @@
     display: flex;
     justify-content: space-between;
 }
+
+.card-title > p:first-child {
+    margin-bottom: 10px;
+}

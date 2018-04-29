@@ -9,10 +9,6 @@ import DateTimePicker from 'react-widgets/lib/DateTimePicker'
 import 'react-widgets/dist/css/react-widgets.css'
 momentLocalizer(moment)
 
-const schools = ["UBC", "SFU", "EMILY CARR"]
-
-const required = value => (value ? undefined : 'Required')
-
 const renderDropdownList = ({ input, data, valueField, textField, meta: { touched, error, warning } }) => (
     <div>
         <DropdownList {...input}
@@ -28,17 +24,18 @@ const renderDropdownList = ({ input, data, valueField, textField, meta: { touche
 const renderDateTimePicker = ({ input: { onChange, value }, showTime, meta: { touched, error, warning } }) => {
     const isPast = () => {
         if (Date.parse(value) < new Date()) {
-            return <span className="red-text">Please Select Another Date</span>
-        }
+        touched = !touched
+          return <span className="red-text">Please Select Another Date</span> 
+        } 
     }
 
     return (
         <div>
-            <DateTimePicker
+            <DateTimePicker 
                 onChange={onChange}
                 format="MM/DD/YYYY h:mm a"
                 time={showTime}
-                value={!value ? null : new Date(value)}
+                value={!value ? null : Date.parse(value) < new Date() ? null : new Date(value)}
             />
             {isPast()}
             {touched &&
@@ -63,7 +60,8 @@ const inputField = ({ input, meta: { touched, error, warning } }) => (
 
 
 const EventForm = ({ onEventSubmit, handleSubmit, pristine, reset, submitting, formValues }) => {
-
+    const schools = ["UBC", "SFU", "EMILY CARR"]
+    const required = value => (value ? undefined : 'Required')
     return (
         <form onSubmit={handleSubmit(values => onEventSubmit())} enctype="multipart/form-data">
             <div>

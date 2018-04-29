@@ -3,3 +3,11 @@
     justify-content: space-around;
     margin-top: 20px;
 }
+
+#rw_1_listbox_active_option {
+    border-color: white;
+}
+
+#rw_2_input, #rw_7_input{
+    margin: 0;
+}
