@@ -36,6 +36,14 @@ class EventShow extends Component {
         return this.event.joined.map((member, index) => {
             let colorText = null;
             let personIcon = null;
+            //show satus or schoolname
+            const school = () => {
+                if (member.school && member.currentState === "Student") {
+                    return <p><i class="material-icons left">account_balance</i>{member.school}</p>
+                } 
+                return <p><i class="material-icons left">assignment_ind</i>{member.currentState}</p>
+            }
+
             if (index === 0) {
                 colorText = "red";
                 personIcon = "person";
@@ -49,7 +57,7 @@ class EventShow extends Component {
                 <li class={`collection-item avatar ${colorText}-text`} key={index}>
                     <i class={`left material-icons ${colorText} circle`}>{`${personIcon}`}</i>
                     <p class="title">{member.username}</p>
-                    <p><i class="material-icons left">assignment_ind</i>{member.currentState}</p>
+                    {school()}
                     <p><i class="material-icons left">school</i>{member.studying}</p>
                 </li>
             )

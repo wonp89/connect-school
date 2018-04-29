@@ -15,7 +15,7 @@ class Header extends Component {
     // must need userInfo to view and join the events
     isUserInfo () {
         if (this.props.auth._userInfo) {
-            return <Link to="/event"><li style={{ marginLeft: "20px" }}>Event</li></Link>
+            return <Link to="/event" className="left"><li>Event</li></Link>
         }
     }
 
@@ -24,14 +24,14 @@ class Header extends Component {
             case null:
                 return;
             case false:
-                return <li><a href="/auth/google">Login With Google</a></li>;
+                return <li className="left"><a href="/auth/google">Login With Google</a></li>;
             default:
                 return (
                     <div>
-                        <Link to="/"><li>Home</li></Link>
+                        <Link to="/" className="left"><li>Home</li></Link>
                         {this.isUserInfo()}
                         <li className="right"><a href="/api/logout">Logout</a></li>
-                        <Link to="/userInfo" className="right"><li style={{ marginLeft: "20px" }}>My Information</li></Link>
+                        <Link to="/userInfo" className="right"><li>My Information</li></Link>
                     </div>
                 )
         }

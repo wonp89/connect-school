@@ -48,6 +48,6 @@
     margin-bottom: 5px;
 }
 
-.collection-item.avatar > p:last-child {
-    margin-top: 2px;
+.collection-item.avatar > p {
+    margin-top: 2px !important;
 }

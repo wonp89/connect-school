@@ -21,7 +21,7 @@ module.exports = app => {
     app.get('/api/event/:id', requireLogin, (req, res) => {
         const { id } = req.params
         EventSchema.find({ _id: id })
-            .populate('joined', ['username', 'currentState', 'studying', 'email']).exec()
+            .populate('joined', ['username', 'currentState', 'studying', 'school', 'email']).exec()
             .then(result => res.status(201).json(result))
             .catch(err => res.status(500).send(err))
     });
