@@ -25,7 +25,7 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 require('./routes/userInfoRoutes')(app);
-require('./routes/EventRoutes')(app);
+require('./routes/eventRoutes')(app);
 
 app.use(express.static(path.join(__dirname, 'client/build')))
 app.get('*', (req, res) => {
