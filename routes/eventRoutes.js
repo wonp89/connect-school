@@ -70,8 +70,8 @@ module.exports = app => {
             userInfo.save();
 
             // //send event detail by email 
-            // const mailer = new Mailer(event, req.user.email, eventTemplate(event));
-            // mailer.send();
+            const mailer = new Mailer(event, req.user.email, eventTemplate(event));
+            mailer.send();
 
             res.status(201).json(event);
         } catch (err) {
