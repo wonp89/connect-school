@@ -14,7 +14,7 @@ mongoose.connect(keys.mongoURI)
 
 const app = express();
 app.use(bodyParser.json())
-app.use (
+app.use(
     cookieSession({
         maxAge: 30 * 24 * 60 * 60 * 1000, //30 days
         keys: [keys.cookieKey]
@@ -26,6 +26,11 @@ app.use(passport.session());
 require('./routes/authRoutes')(app);
 require('./routes/userInfoRoutes')(app);
 require('./routes/EventRoutes')(app);
+
+app.use(express.static(path.join(__dirname, 'client/build')))
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '/client/build/index.html'));
+});
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT);
