@@ -18,7 +18,7 @@ const Welcome = () => {
         <div>
             <div id="main-background" style={background}>
                 <div>
-                    <h3 className="white-text">WELECOME TO CONNECT SHOOL</h3>
+                    <h3 className="white-text">WELECOME TO CONNECT SCHOOL</h3>
                     <h5 className="white-text">This website is still on development. Feel free to login and look around.</h5>
                 </div>
             </div>
