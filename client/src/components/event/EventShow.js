@@ -113,7 +113,7 @@ class EventShow extends Component {
 
         // when user joined or quit event, a modal displays
         const eventModal = () => {
-            // ( "if state is mutated after joined or quit" && "this.props.event[0] has object value when it was undefined(stored in localStorage)" )
+            // "if state is mutated after joined or quit" - && - "this.props.event[0] has object value when it was undefined(stored in localStorage)" 
             if (this.event !== this.props.event[0] && this.props.event[0]) {
                 return <EventModal event={this.props.event[0]} color={this.props.event[0].color} message={this.props.event[0].message} />
             }

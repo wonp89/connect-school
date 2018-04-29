@@ -1,0 +1,16 @@
+#main-background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-background > div {
+    background-color: black;
+    text-align: center;
+    padding: 20px;
+    margin-top: -50px;
+}
+
+h3 {
+    margin-top: 15px;
+}

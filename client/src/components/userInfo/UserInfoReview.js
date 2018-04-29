@@ -29,7 +29,7 @@ class UserInfo extends Component {
         } 
         return <ul class="collection with-header">
             <li class="collection-header">
-                <h5>USER INFORMATION</h5>
+                <h5 className="black-text">USER INFORMATION</h5>
                 <button
                     className="yellow darken-3 white-text btn-flat update-user"
                     onClick={this.props.onEdit}

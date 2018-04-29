@@ -21,12 +21,12 @@ class UserInfoEvent extends Component {
                                 <span class="card-title">{event.title}</span>
                                 <p>{event.school}</p>
                                 <p>{event.location}</p>
-                                <p>{moment(event.date).format('MMMM Do YYYY, h:mm a')}</p>
+                                <p>Expire {moment(event.date).fromNow()}</p>
                             </div>
                             <div class="card-action center">
                                 {event.expired
                                     ? <button type="submit" className="red btn-flat white-text" onClick={() => this.props.removeEvent(event._id)}>EXPIRED: Click to remove</button>
-                                    : <Link to={"/event/" + event._id}>MORE DETAIL</Link>}
+                                    : <Link to={"/event/" + event._id}>VIEW DETAIL</Link>}
                             </div>
                         </div>
                     </div>
@@ -40,8 +40,8 @@ class UserInfoEvent extends Component {
 
         return (
             <div class="row">
-                <h3 className="center">Joined Events</h3>
-                <hr/>
+                <h3 className="center">JOINED EVENTS</h3>
+                <hr />
                 {this.renderEvents()}
             </div>
         )

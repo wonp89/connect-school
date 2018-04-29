@@ -1,8 +1,9 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import '../../assets/css/EventForm.css';
-import {renderDropdownList, renderInputField, renderDateTimePicker} from './EventFields'
+import { renderDropdownList, renderInputField, renderDateTimePicker } from './EventFields'
 import moment from 'moment'
 import momentLocalizer from 'react-widgets-moment'
 import 'react-widgets/dist/css/react-widgets.css'
@@ -18,7 +19,10 @@ const EventForm = ({ onEventSubmit, handleSubmit, pristine, reset, submitting, f
     const schools = ["UBC", "SFU", "EMILY CARR"]
     const required = value => (value ? undefined : 'Required')
     return (
+
         <form onSubmit={handleSubmit(values => onEventSubmit())} enctype="multipart/form-data">
+            <button className="red darken-3 white-text btn-flat right reset-button" type="button" disabled={pristine || submitting} onClick={reset}>Reset Values
+                </button>
             <div>
                 <label>Schools</label>
                 <Field
@@ -79,12 +83,13 @@ const EventForm = ({ onEventSubmit, handleSubmit, pristine, reset, submitting, f
                     type="file"
                     component={customFileInput} />
             </div> */}
-
             <div id="buttons-container">
-                <button className="yellow darken-3 white-text btn-flat" type="button" disabled={pristine || submitting} onClick={reset}>Reset Values
-            </button>
+                <Link
+                    to="/event"
+                    className="left yellow darken-3 white-text btn-flat"
+                >GO BACK</Link>
                 <button type="submit" className="teal btn-flat white-text" >
-                    SAVE
+                    SUBMIT
                      <i className="material-icons right">done</i>
                 </button>
             </div>

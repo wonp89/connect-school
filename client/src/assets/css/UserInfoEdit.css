@@ -1,3 +1,7 @@
 .edit-container {
     height: 50vh;
 }
+
+#rw_1_listbox_active_option {
+    border-color: white;
+}
