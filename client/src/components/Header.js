@@ -1,21 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import $ from 'jquery';
+import { Navbar, NavItem } from 'react-materialize'
+import '../assets/css/Header.css';
 
 class Header extends Component {
 
-    // // ------------- need to figureout the problem of sidenav -------
-    // componentDidMount() {
-    //     $(document).ready(function(){
-    //         $('.sidenav').sidenav();
-    //       });
-    // }
-
     // must need userInfo to view and join the events
-    isUserInfo () {
+    isUserInfo() {
         if (this.props.auth._userInfo) {
-            return <Link to="/event" className="left"><li>Event</li></Link>
+            return <NavItem><Link to="/event">Event</Link></NavItem>
         }
     }
 
@@ -24,14 +18,16 @@ class Header extends Component {
             case null:
                 return;
             case false:
-                return <li className="left"><a href="/auth/google">Login With Google</a></li>;
+                return <Navbar left className="indigo lighten-1 nav-wrapper"><NavItem><a href="/auth/google">Login With Google</a></NavItem></Navbar>;
             default:
                 return (
                     <div>
-                        <Link to="/" className="left"><li>Home</li></Link>
-                        {this.isUserInfo()}
-                        <li className="right"><a href="/api/logout">Logout</a></li>
-                        <Link to="/userInfo" className="right"><li>My Information</li></Link>
+                        <Navbar left className="indigo lighten-1">
+                            <NavItem><Link to="/">Home</Link></NavItem>
+                            {this.isUserInfo()}
+                            <NavItem><Link to="/userInfo">My Information</Link></NavItem>
+                            <NavItem><a href="/api/logout">Logout</a></NavItem>
+                        </Navbar>
                     </div>
                 )
         }
@@ -40,24 +36,8 @@ class Header extends Component {
     render() {
         return (
             <div>
-                <nav>
-                    <div className="indigo lighten-1 nav-wrapper">
-                        <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-                        <ul className="hide-on-med-and-down">
-                            {this.renderContent()}
-                        </ul>
-                    </div>
-                </nav>
-
-                <ul className="sidenav" id="mobile-demo">
-                    <Link to="/"><li>Home</li></Link>
-                    <Link to="/userInfo"><li>My Information</li></Link>
-                    <Link to="/event"><li>Event</li></Link>
-                    {/* <Link to="/event/new"><li>Event New</li></Link> */}
-                    <li><a href="/api/logout">Logout</a></li>
-                </ul>
+                {this.renderContent()}
             </div>
-
         )
     }
 }
