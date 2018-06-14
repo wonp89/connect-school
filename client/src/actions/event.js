@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { formatListing } from '../helpers/formatValues';
 import { FETCH_EVENTS } from './types';
 import { SUBMIT_EVENT } from './types';
 import { JOIN_EVENT } from './types';
@@ -7,18 +8,22 @@ import { QUIT_EVENT } from './types';
 import { REMOVE_EVENT } from './types';
 import { EXPIRED_EVENTS } from './types';
 
-export const submitEvent = (values) =>
-    async dispatch => {
+export const submitEvent = (values) => {
+    const options = formatListing(values);
+    // console.log(options) will return empty object becasue formatData not stringifyable
+    return async dispatch => {
         try {
-            const res = await axios.post('/api/event', values);
+            const res = await axios.post('/api/event', options);
             dispatch({ type: SUBMIT_EVENT, payload: res.data });
         } catch (err) {
             console.log(err);
         }
     };
+}
+
 
 export const fetchEvents = () =>
-    async dispatch => {
+    async dispatch => { 
         try {
             const res = await axios.get('/api/event');
             dispatch({ type: FETCH_EVENTS, payload: res.data });
@@ -59,14 +64,14 @@ export const quitEvent = (id) =>
 
 //from user info
 export const removeEvent = (id) =>
-async dispatch => {
-    try {
-        const res = await axios.post(`/api/event/remove/${id}`);
-        dispatch({ type: REMOVE_EVENT, payload: res.data });
-    } catch (err) {
-        console.log(err);
+    async dispatch => {
+        try {
+            const res = await axios.post(`/api/event/remove/${id}`);
+            dispatch({ type: REMOVE_EVENT, payload: res.data });
+        } catch (err) {
+            console.log(err);
+        }
     }
-}
 
 export const expiredEvents = (id) =>
     async dispatch => {

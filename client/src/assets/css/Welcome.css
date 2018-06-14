@@ -1,16 +1,15 @@
-#main-background {
-    display: flex;
-    justify-content: center;
+.section {
+    background-color: #e6f7ff;
+    height: 80vh;
+    display:flex;
     align-items: center;
 }
-
-#main-background > div {
-    background-color: black;
-    text-align: center;
-    padding: 20px;
-    margin-top: -50px;
+.parallax-container {
+    height: 100vh;
 }
-
-h3 {
-    margin-top: 15px;
+#welcome-heading {
+    font-weight: lighter;
+}
+#connect-school-heading {
+    font-weight: bold;
 }

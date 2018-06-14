@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Navbar, NavItem } from 'react-materialize'
 import '../assets/css/Header.css';
+import logo from "../assets/images/logo.png";
+import logoBackgroundImage from "../assets/images/logoBackground.png";
 
 class Header extends Component {
 
@@ -18,7 +20,12 @@ class Header extends Component {
             case null:
                 return;
             case false:
-                return <Navbar left className="indigo lighten-1 nav-wrapper"><NavItem><a href="/auth/google">Login With Google</a></NavItem></Navbar>;
+                return (
+                    <Navbar left className="indigo lighten-1 nav-wrapper">
+                        <NavItem><Link to="/event">Event</Link></NavItem>
+                        <NavItem><a href="/auth/google">Login With Google</a></NavItem>
+                    </Navbar>
+                        )
             default:
                 return (
                     <div>
@@ -34,8 +41,20 @@ class Header extends Component {
     }
 
     render() {
+
+        const logoBackground = {
+            width: "100vw",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            backgroundImage: `url(${logoBackgroundImage})`
+        };
+
         return (
             <div>
+                <div style={logoBackground}>
+                <Link to="/"><img id="logo" src={logo} /></Link>
+                </div>
                 {this.renderContent()}
             </div>
         )

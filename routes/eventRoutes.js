@@ -1,14 +1,16 @@
 const mongoose = require('mongoose');
-// const multer = require('multer')
+const multer = require('multer')
 const path = require('path')
 const requireLogin = require('../middlewares/requireLogin')
 const Mailer = require('../services/Mailer')
 const eventTemplate = require('../services/eventTemplate')
 
+//schemas
 const EventSchema = mongoose.model('Event')
 const UserInfoSchema = mongoose.model('UserInfo')
 
-// const upload = multer({dest: path.join(__dirname, '..', 'public', 'uploads')})
+//iamge upload
+const upload = multer({dest: path.join(__dirname, '..', 'public', 'uploads')});
 
 module.exports = app => {
 
@@ -26,8 +28,9 @@ module.exports = app => {
             .catch(err => res.status(500).send(err))
     });
 
-    app.post('/api/Event', requireLogin, async (req, res) => {
-        const { school, title, body, location, date } = req.body;
+    app.post('/api/Event', requireLogin, upload.single('image') , async (req, res) => {
+        const { school, title, body, location, date, image } = req.body;
+        const {filename} = req.file;
         try {
             const event = await new EventSchema({
                 school,
@@ -35,6 +38,7 @@ module.exports = app => {
                 body,
                 location,
                 date,
+                image: `/uploads/${filename}`,
                 posted: Date.now(),
                 _user: req.user._userInfo
             });

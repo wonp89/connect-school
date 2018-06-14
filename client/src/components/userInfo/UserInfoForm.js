@@ -10,7 +10,9 @@ import { RadioButton } from 'material-ui/RadioButton'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class UserInfoForm extends Component {
+
     renderFields = () => {
+        //fix here
         return _.map(UserInfoFormFields, field => {
             if (field.name === 'username') {
                 return <Field component={renderInputField} type="text" label={field.label} name={field.name} />
@@ -50,6 +52,7 @@ class UserInfoForm extends Component {
         return (
             <div className="container userInfo-form">
                 <form onSubmit={() => submitUserInfo(formValues)}>
+                    <p class="red-text">Please fill out the form below to see all the events.</p>
                     {this.renderFields()}
                     <button type="submit" className="teal btn-flat right white-text">
                         SAVE

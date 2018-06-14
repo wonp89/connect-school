@@ -44,4 +44,9 @@ export const renderDateTimePicker = ({ input: { onChange, value }, showTime, met
     )
 }
 
-export default (renderInputField, renderDropdownList, renderDateTimePicker);
+export const customFileInput = ({input}) => {
+        delete input.value; // <-- disable error "Failed to set the 'value' property"
+        return <input type="file" id="file" {...input} />;
+    };
+
+export default (renderInputField, renderDropdownList, renderDateTimePicker, customFileInput);

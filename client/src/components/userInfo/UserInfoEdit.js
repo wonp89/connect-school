@@ -10,6 +10,7 @@ import { RadioButton } from 'material-ui/RadioButton'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class UserEditForm extends Component {
+
     renderFields() {
         return _.map(UserInfoFormFields, field => {
             // username should be consistent

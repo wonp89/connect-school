@@ -25,3 +25,7 @@
 .card-title > p:first-child {
     margin-bottom: 10px;
 }
+
+.schoolAndExpire-parag {
+    font-size: 1.2rem;
+}

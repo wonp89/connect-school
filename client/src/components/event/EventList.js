@@ -38,7 +38,7 @@ class EventList extends Component {
     renderEvents = () => {
         return this.props.event.filter(event => event.school.toLowerCase().includes(this.state.query.toLowerCase()))
             .reverse().map(event =>
-                < EventAll event={event} id={event._id} />
+                < EventAll event={event} id={event._id} auth={this.props.auth} />
             )
     }
 
@@ -53,7 +53,7 @@ class EventList extends Component {
     showNameSelection() {
         return (
             <MuiThemeProvider>
-                <DropDownMenu value={this.state.query} onChange={this.filterSchool}id="drop-down-menu">
+                <DropDownMenu value={this.state.query} onChange={this.filterSchool} id="drop-down-menu">
                     <MenuItem value="" primaryText="All" />
                     {this.state.schools.map(names =>
                         <MenuItem value={names} primaryText={names} />)}
@@ -63,12 +63,14 @@ class EventList extends Component {
     }
 
     eventNew() {
-        return (
-            <button className="blue btn-flat right white-text create-new">
-                <Link className="white-text" to="/event/new">CREATE NEW EVENT</Link>
-                <i class="right material-icons">create</i>
-            </button>
-        )
+        if (this.props.auth) {
+            return (
+                <button className="blue btn-flat right white-text create-new">
+                    <Link className="white-text" to="/event/new">CREATE NEW EVENT</Link>
+                    <i class="right material-icons">create</i>
+                </button>
+            )
+        } 
     }
 
     render() {

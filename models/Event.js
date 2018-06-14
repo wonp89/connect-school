@@ -8,6 +8,7 @@ const EventSchema = new Schema({
     location: String,
     createdBy: String,
     date: Date,
+    image: String,
     expired: { type: Boolean, default: false },
     joined: [{type: Schema.Types.ObjectId, ref: 'UserInfo'}],   
     posted: Date,

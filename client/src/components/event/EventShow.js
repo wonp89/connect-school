@@ -18,8 +18,10 @@ class EventShow extends Component {
     }
     // 1) mount new sate
     componentDidMount() {
+        console.log(this.props)
+        const {params} = this.props.match;
         !localStorage.getItem('event')
-            ? this.props.showEvent(this.props.match.params.id)
+            ? this.props.showEvent(params.id)
             : console.log("using state from localStorage")
     }
     // 2) insert into localstorage after new state mounted
@@ -40,10 +42,14 @@ class EventShow extends Component {
             const school = () => {
                 if (member.school && member.currentState === "Student") {
                     return <p><i class="material-icons left">account_balance</i>{member.school}</p>
-                } 
+                }
                 return <p><i class="material-icons left">assignment_ind</i>{member.currentState}</p>
             }
-
+            const creatorEmail = () => {
+                if (index === 0) {
+                    return <p><i class="material-icons left">email</i>{member.email}</p>
+                }
+            }
             if (index === 0) {
                 colorText = "red";
                 personIcon = "person";
@@ -54,11 +60,12 @@ class EventShow extends Component {
                 personIcon = "people";
             }
             return (
-                <li class={`collection-item avatar ${colorText}-text`} key={index}>
+                <li class={`collection-item avatar`} key={index}>
                     <i class={`left material-icons ${colorText} circle`}>{`${personIcon}`}</i>
-                    <p class="title">{member.username}</p>
+                    <p class={`title ${colorText}-text`}>{member.username}</p>
                     {school()}
                     <p><i class="material-icons left">school</i>{member.studying}</p>
+                    {creatorEmail()}
                 </li>
             )
         })
@@ -68,9 +75,9 @@ class EventShow extends Component {
     joinedMessage() {
         return this.event.joined.map(member => {
             if (this.user._userInfo === this.event._creator && this.user._userInfo === member._id) {
-                return <span className="red-text"><i class="left material-icons">person</i>You created this event</span>
+                return <span className="red-text"><i class="left material-icons person-icon">person</i>You created this event</span>
             } else if (this.user._userInfo === member._id) {
-                return <span className="green-text"><i class="left material-icons">people</i>You have already joined this event.</span>
+                return <span className="green-text"><i class="left material-icons person-icon">people</i>You have already joined this event.</span>
             }
         })
     }
@@ -110,7 +117,6 @@ class EventShow extends Component {
             this.event = this.props.event[0];
             this.user = this.props.auth;
         }
-
         // when user joined or quit event, a modal displays
         const eventModal = () => {
             // "if state is mutated after joined or quit" - && - "this.props.event[0] has object value when it was undefined(stored in localStorage)" 
@@ -122,10 +128,10 @@ class EventShow extends Component {
         return (
             <div className="container show-container">
                 {this.joinedMessage()}
-                <div class={`row ${this.showBorder()}`} key={this.event._id}>
+                <div class="row" key={this.event._id}>
                     {eventModal()}
                     <div class="col s12 m8">
-                        <div class="card grey lighten-5">
+                        <div class={`card ${this.showBorder()}`}>
                             <div class="card-content black-text">
                                 <p class="card-title">{this.event.title}</p>
                                 <p>

@@ -8,6 +8,7 @@
     margin: 0;
 }
 
-.reset-button {
-    margin-bottom: 40px;
+#resetButton-container {
+    display: flex;
+    justify-content: flex-end;
 }

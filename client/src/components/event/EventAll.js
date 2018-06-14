@@ -3,7 +3,7 @@ import '../../assets/css/EventAll.css';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 
-const EventAll = ({ event, id }) => {
+const EventAll = ({ event, id, auth }) => {
 
     const expiredColor = () => {
         if (event.expired) {
@@ -19,13 +19,18 @@ const EventAll = ({ event, id }) => {
                 </div>
             )
         }
+        const showButton = () => {
+            return auth 
+            ? <Link to={"/event/" + id} className="right waves-effect waves-light btn">Show</Link>
+            : <p className="orange-text">Login to view event detail</p>
+        }
         return (
             <div className="card-action not-expired">
                 <span className="red-text joined">
                 <i class="left material-icons">account_circle</i>
                 Joined: {event.joined.length}
                 </span>
-                <Link to={"/event/" + id} className="right waves-effect waves-light btn">Show</Link>
+                {showButton()}
             </div>
         )
     }
@@ -36,8 +41,8 @@ const EventAll = ({ event, id }) => {
                 <div className={`card-content ${expiredColor()}`}>
                     <span className="card-title">
                         <p>{event.title}</p>
-                        <p><i class="left material-icons">account_balance</i>{event.school}</p>
-                        <p><i class="left material-icons">timer</i>Expire {moment(event.date).fromNow()}</p>
+                        <p className="schoolAndExpire-parag"><i class="left material-icons">account_balance</i>{event.school}</p>
+                        <p className="schoolAndExpire-parag"><i class="left material-icons">timer</i>Expire {moment(event.date).fromNow()}</p>
                     </span>
                 </div>
                 {isExpired()}

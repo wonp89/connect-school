@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import '../../assets/css/EventModal.css'
+import '../../assets/css/EventModal.css';
 import $ from "jquery";
 
 class EventModal extends Component {
