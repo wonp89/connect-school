@@ -11,7 +11,7 @@ class Header extends Component {
     // must need userInfo to view and join the events
     isUserInfo() {
         if (this.props.auth._userInfo) {
-            return <NavItem><Link to="/event">Event</Link></NavItem>
+            return <NavItem><Link to="/event" className="black-text">Event</Link></NavItem>
         }
     }
 
@@ -21,18 +21,18 @@ class Header extends Component {
                 return;
             case false:
                 return (
-                    <Navbar left className="indigo lighten-1 nav-wrapper">
-                        <NavItem><Link to="/event">Event</Link></NavItem>
-                        <NavItem><a href="/auth/google">Login With Google</a></NavItem>
+                    <Navbar left className="white lighten-1">
+                        <NavItem><Link to="/event" className="black-text">Event</Link></NavItem>
+                        <NavItem><a href="/auth/google" className="black-text">Login With Google</a></NavItem>
                     </Navbar>
                         )
             default:
                 return (
                     <div>
-                        <Navbar left className="indigo lighten-1">
+                        <Navbar left className="white lighten-1">
                             {this.isUserInfo()}
-                            <NavItem><Link to="/userInfo">My Information</Link></NavItem>
-                            <NavItem><a href="/api/logout">Logout</a></NavItem>
+                            <NavItem><Link to="/userInfo" className="black-text">My Information</Link></NavItem>
+                            <NavItem><a href="/api/logout" className="black-text">Logout</a></NavItem>
                         </Navbar>
                     </div>
                 )
@@ -45,7 +45,6 @@ class Header extends Component {
             width: "100vw",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
             backgroundImage: `url(${logoBackgroundImage})`
         };
 

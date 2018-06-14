@@ -4,3 +4,14 @@
 .footer-copyright {
     text-align: center;
 }
+.contact-container {
+    border-top: solid 1px white;
+    padding-top: 1rem;
+}
+.contact-container > p {
+    margin-top: 0;
+    margin-bottom: 3px;
+}
+.contact-container > h5 {
+    margin-bottom: 5px;
+}
