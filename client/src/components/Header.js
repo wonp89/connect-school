@@ -30,7 +30,6 @@ class Header extends Component {
                 return (
                     <div>
                         <Navbar left className="indigo lighten-1">
-                            <NavItem><Link to="/">Home</Link></NavItem>
                             {this.isUserInfo()}
                             <NavItem><Link to="/userInfo">My Information</Link></NavItem>
                             <NavItem><a href="/api/logout">Logout</a></NavItem>
