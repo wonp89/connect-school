@@ -11,6 +11,7 @@ const EventAll = ({ event, id, auth }) => {
         }
         return "black-text"
     }
+
     const isExpired = () => {
         if (event.expired) {
             return (
@@ -22,7 +23,7 @@ const EventAll = ({ event, id, auth }) => {
         const showButton = () => {
             return auth 
             ? <Link to={"/event/" + id} className="right waves-effect waves-light btn">Show</Link>
-            : <p className="orange-text">Login to view event detail</p>
+            : <p className="orange-text Login-event-detail">Login to view event detail</p>
         }
         return (
             <div className="card-action not-expired">

@@ -30,7 +30,8 @@
     font-size: 1.2rem;
 }
 
-.orange-text {
+.Login-event-detail {
     border: solid;
     padding: 5px;
+    margin: 0;
 }

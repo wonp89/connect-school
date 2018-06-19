@@ -13,7 +13,7 @@ class EventModal extends Component {
 
     componentDidMount() {
         $(document).ready(function () {
-            $('.modal').fadeIn('open');
+            $('.modal').fadeIn();
         });
     }
 
