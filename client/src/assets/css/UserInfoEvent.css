@@ -1,0 +1,15 @@
+.event-content {
+    height: 220px;
+    overflow: auto
+}
+
+.userInfo-card-action {
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.joined-event-header {
+    margin-top: 5rem;
+}

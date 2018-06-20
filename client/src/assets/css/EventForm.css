@@ -12,3 +12,8 @@
     display: flex;
     justify-content: flex-end;
 }
+
+#event-form {
+    width: 80%;
+    margin: auto;
+}

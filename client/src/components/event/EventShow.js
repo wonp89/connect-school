@@ -118,18 +118,16 @@ class EventShow extends Component {
             this.user = this.props.auth;
         }
         // when user joined or quit event, a modal displays
-        const eventModal = () => {
-            // "if state is mutated after joined or quit" - && - "this.props.event[0] has object value when it was undefined(stored in localStorage)" 
-            if (this.event !== this.props.event[0] && this.props.event[0]) {
-                return <EventModal event={this.props.event[0]} color={this.props.event[0].color} message={this.props.event[0].message} />
-            }
+        let eventModal = null
+        if (this.event !== this.props.event[0] && this.props.event[0]) {
+            eventModal = <EventModal event={this.props.event[0]} color={this.props.event[0].color}message={this.props.event[0].message} />
         }
 
         return (
             <div className="container show-container">
                 {this.joinedMessage()}
                 <div class="row" key={this.event._id}>
-                    {eventModal()}
+                    {eventModal}
                     <div class="col s12 m8">
                         <div class={`card ${this.showBorder()}`}>
                             <div class="card-content black-text">

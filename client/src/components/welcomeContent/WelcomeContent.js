@@ -22,13 +22,13 @@ export const FirstContent = (props) => {
 
 export const MiddleContent = (props) => (
     <Aux>
-        <h1 className={props.show ? "header-paragraph display-middle-content" : "header-paragraph"} >
+        <h1 className="header-paragraph" >
             <span id="welcome-heading">WELECOME TO</span>
-            <span id="connect-school-heading"> CONNECT SCHOOL</span>
+            <span  className={props.show ? "connect-school-heading display-middle-content" : "connect-school-heading"}> CONNECT SCHOOL</span>
         </h1>
         <h5>Education is not just about going to school and getting a degree. We don't stop going to school when we graduate. You have to stay in school.
         </h5>
-        <h5 className={props.show ? "header-paragraph display-middle-content" : "header-paragraph"}>Join any school events and meet new people. Connect School will help you.</h5>
+        <h5 className="header-paragraph">Join any school events and meet new people. Connect School will help you.</h5>
     </Aux>
 )
 

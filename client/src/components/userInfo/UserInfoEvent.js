@@ -3,6 +3,7 @@ import moment from 'moment';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import { Link } from 'react-router-dom';
+import '../../assets/css/UserInfoEvent.css'
 
 class UserInfoEvent extends Component {
     event = null;
@@ -17,13 +18,16 @@ class UserInfoEvent extends Component {
                 return (
                     <div class="col s12 m4">
                         <div class="card card horizonta">
-                            <div class="card-content black-text">
-                                <span class="card-title">{event.title}</span>
+                            <div class="card-content black-text event-content">
+                                <span class="card-title">
+                                    <span class="orange-text">>&nbsp;</span>
+                                  {event.title}
+                                </span>
                                 <p>{event.school}</p>
                                 <p>{event.location}</p>
-                                <p>Expire {moment(event.date).fromNow()}</p>
+                                <p class="red-text">Expire {moment(event.date).fromNow()}</p>
                             </div>
-                            <div class="card-action center">
+                            <div class="card-action center userInfo-card-action">
                                 {event.expired
                                     ? <button type="submit" className="red btn-flat white-text" onClick={() => this.props.removeEvent(event._id)}>EXPIRED: Click to remove</button>
                                     : <Link to={"/event/" + event._id}>VIEW DETAIL</Link>}
@@ -40,7 +44,7 @@ class UserInfoEvent extends Component {
 
         return (
             <div class="row">
-                <h3 className="center">JOINED EVENTS</h3>
+                <h3 className="center joined-event-header">JOINED EVENTS</h3>
                 <hr />
                 {this.renderEvents()}
             </div>

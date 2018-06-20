@@ -15,7 +15,7 @@ const EventForm = ({ onEventSubmit, handleSubmit, pristine, reset, submitting, f
     const required = value => (value ? undefined : 'Required')
 
     return (
-        <form onSubmit={handleSubmit(values => onEventSubmit())} enctype="multipart/form-data">
+        <form id="event-form" onSubmit={handleSubmit(values => onEventSubmit())} enctype="multipart/form-data">
         
             <div id="resetButton-container">
                 <button className="red darken-3 white-text btn-flat right" type="button" disabled={pristine || submitting} onClick={reset}>Reset Values
