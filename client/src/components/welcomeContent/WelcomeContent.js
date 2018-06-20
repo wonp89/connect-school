@@ -1,6 +1,6 @@
 import React from 'react'
 import Aux from '../aux/Aux'
-import '../../assets/css/WelcomeContent.css'
+import '../../assets/css/WelcomeAnimation.css'
 
 //images
 import createImage from "../../assets/images/create.png";
@@ -22,13 +22,13 @@ export const FirstContent = (props) => {
 
 export const MiddleContent = (props) => (
     <Aux>
-        <h1 className="header-paragraph" >
+        <h2 className="header-paragraph" >
             <span id="welcome-heading">WELECOME TO</span>
             <span  className={props.show ? "connect-school-heading display-middle-content" : "connect-school-heading"}> CONNECT SCHOOL</span>
-        </h1>
-        <h5>Education is not just about going to school and getting a degree. We don't stop going to school when we graduate. You have to stay in school.
+        </h2>
+        <h5 className="header-paragraph2">Education is not just about going to school and getting a degree. We don't stop going to school when we graduate. You have to stay in school.
         </h5>
-        <h5 className="header-paragraph">Join any school events and meet new people. Connect School will help you.</h5>
+        <h5 className="header-paragraph2">Join any school events and meet new people. Connect School will help you.</h5>
     </Aux>
 )
 
