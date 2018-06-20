@@ -8,9 +8,57 @@
     justify-content: center;
     box-shadow: none;
     border-top: double 3px black;
+    border-bottom: double 3px black;
 }   
 .button-collapse {
     color: black;
 }
 
+.navItem a {
+    height: 58px;
+    transition: letter-spacing 0.3s;
+    transition: color 0.3s;
+    position: relative;
+}
+
+.navItem a:hover {
+    color: #EF7E56 !important;
+    background-color:transparent !important;
+}
+
+.navItem a:before {
+    content: '';
+    height: 2px;
+    width: 0%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: #EF7E56;
+    transition: width 0.3s;
+}
+
+.navItem a:after {
+    content: '';
+    height: 2px;
+    width: 0%;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    background-color: #EF7E56;
+    transition: width 0.3s;
+}
+
+.navItem a:hover:before,
+.navItem a:hover:after {
+    width: 100%;
+}
+
+@media only screen and (max-width: 992px) {
+    .navItem a {
+        height:50px
+    }
+    .link-divider {
+        display: none;
+    }
+ }
 

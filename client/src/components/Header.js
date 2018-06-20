@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Navbar, NavItem } from 'react-materialize'
+import { Navbar } from 'react-materialize'
 import '../assets/css/Header.css';
 import logo from "../assets/images/logo.png";
 import logoBackgroundImage from "../assets/images/logoBackground.png";
 
 class Header extends Component {
 
-    // must need userInfo to view and join the events
-    isUserInfo() {
-        if (this.props.auth._userInfo) {
-            return <NavItem><Link to="/event" className="black-text">Event</Link></NavItem>
-        }
+    state = {
+        navItems: [
+            { name: 'home', to: '/' },
+            { name: 'event', to: '/event' },
+            { name: 'myInformation', to: '/userInfo' }
+        ]
+    }
+
+    selectedNavItem(navItem) {
+        this.setState({ active: navItem });
     }
 
     renderContent() {
@@ -21,18 +26,51 @@ class Header extends Component {
                 return;
             case false:
                 return (
-                    <Navbar left className="white lighten-1">
-                        <NavItem><Link to="/event" className="black-text">Event</Link></NavItem>
-                        <NavItem><a href="/auth/google" className="black-text">Login With Google</a></NavItem>
+                    <Navbar className="white lighten-1">
+                        {this.state.navItems.map((navItem) => {
+                            return navItem.name === 'event'
+                                ? <li className="navItem"><Link
+                                    to={navItem.to}
+                                    className={this.state.active === navItem ? "orange-text navItem-link" : "black-text navItem-link"}
+                                    onClick={this.selectedNavItem.bind(this, navItem)}>Event</Link></li>
+                                : null
+                        })}
+                        <li className="black-text link-divider">|</li>
+                        <li className="navItem"><a
+                            href="/auth/google"
+                            className="black-text navItem-link"
+                        >Login With Google</a></li>
                     </Navbar>
-                        )
+                )
             default:
                 return (
                     <div>
-                        <Navbar left className="white lighten-1">
-                            {this.isUserInfo()}
-                            <NavItem><Link to="/userInfo" className="black-text">My Information</Link></NavItem>
-                            <NavItem><a href="/api/logout" className="black-text">Logout</a></NavItem>
+                        <Navbar className="white lighten-1">
+                            {this.state.navItems.map((navItem) => {
+                                return navItem.name === 'event'
+                                    ? <li
+                                        className="navItem"><Link
+                                            to={navItem.to}
+                                            className={this.state.active === navItem ? "orange-text navItem-link" : "black-text navItem-link"}
+                                            onClick={this.selectedNavItem.bind(this, navItem)}
+                                        >Event</Link></li>
+                                    : null
+
+                            })}
+                            <li className="black-text link-divider">|</li>
+                            {this.state.navItems.map((navItem) => {
+                                return navItem.name === 'myInformation'
+                                    ? <li
+                                        className="navItem"><Link
+                                            to={{ pathname: '/userinfo' }}
+                                            className={this.state.active === navItem ? "orange-text navItem-link" : "black-text navItem-link"}
+                                            onClick={this.selectedNavItem.bind(this, navItem)}>My Information</Link></li>
+                                    : null
+                            })}
+                            <li className="black-text link-divider">|</li>
+                            <li className="navItem"><a
+                                href="/api/logout"
+                                className="black-text navItem-link">Logout</a></li>
                         </Navbar>
                     </div>
                 )
@@ -42,7 +80,7 @@ class Header extends Component {
     render() {
 
         const logoBackground = {
-            width: "100vw",
+            width: "100%",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundImage: `url(${logoBackgroundImage})`
@@ -51,7 +89,15 @@ class Header extends Component {
         return (
             <div>
                 <div style={logoBackground}>
-                <Link to="/"><img id="logo" src={logo} /></Link>
+                    {this.state.navItems.map((navItem) => {
+                        return navItem.name === 'home'
+                            ? <Link
+                                to={navItem.to}
+                                onClick={this.selectedNavItem.bind(this, navItem)}>
+                                <img id="logo" src={logo} alt="logo" />
+                            </Link>
+                            : null
+                    })}
                 </div>
                 {this.renderContent()}
             </div>
@@ -62,3 +108,4 @@ class Header extends Component {
 const mapStateToProps = ({ auth }) => ({ auth })
 
 export default connect(mapStateToProps)(Header);
+

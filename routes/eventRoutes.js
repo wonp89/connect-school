@@ -10,7 +10,7 @@ const EventSchema = mongoose.model('Event')
 const UserInfoSchema = mongoose.model('UserInfo')
 
 //iamge upload
-const upload = multer({dest: path.join(__dirname, '..', 'public', 'uploads')});
+const upload = multer({dest: path.join(__dirname, '..', 'client', 'src', 'assets', 'uploads')});
 
 module.exports = app => {
 
@@ -31,6 +31,7 @@ module.exports = app => {
     app.post('/api/Event', requireLogin, upload.single('image') , async (req, res) => {
         const { school, title, body, location, date, image } = req.body;
         const {filename} = req.file;
+        console.log(req.file)
         try {
             const event = await new EventSchema({
                 school,
@@ -38,7 +39,7 @@ module.exports = app => {
                 body,
                 location,
                 date,
-                image: `/uploads/${filename}`,
+                image: `../../assets/uploads/${filename}`,
                 posted: Date.now(),
                 _user: req.user._userInfo
             });

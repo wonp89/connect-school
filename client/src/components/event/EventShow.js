@@ -134,6 +134,7 @@ class EventShow extends Component {
                         <div class={`card ${this.showBorder()}`}>
                             <div class="card-content black-text">
                                 <p class="card-title">{this.event.title}</p>
+                                {/* <img src={`require(${this.event.image})`} alt="eventImage" /> */}
                                 <p>
                                     <i class="left material-icons">account_balance</i>
                                     <span>{this.event.school}</span>

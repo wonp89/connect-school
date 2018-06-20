@@ -27,12 +27,11 @@ class EventList extends Component {
 
     //show expired message  
     componentDidUpdate() {
-        this.props.event.map(event => {
-            if (Date.parse(event.date) < new Date() && !event.expired) {
-                this.props.expiredEvents(event._id);
-            }
-        })
-    }
+         this.props.event.map(event => 
+            Date.parse(event.date) < new Date() && !event.expired
+            ? this.props.expiredEvents(event._id)
+            : null
+         )}
 
     //Render one or all event 
     renderEvents = () => {

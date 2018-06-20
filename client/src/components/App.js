@@ -29,7 +29,7 @@ class App extends Component {
         <div>
           <Header />
           <Switch>
-            <Route exact path="/" component={Welcome} />
+            <Route exact path="/" component={Welcome}/>
             <Route exact path="/userInfo" component={this.userInfoSaved()} />
             <Route exact path="/event" component={EventList} />
             <Route exact path="/event/new" component={EventNew} />
@@ -45,3 +45,5 @@ class App extends Component {
 const mapStateToProps = ({ userInfo }) => ({ userInfo })
 
 export default connect(mapStateToProps, actions)(App);
+
+
