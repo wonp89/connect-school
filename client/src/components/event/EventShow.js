@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import EventModal from './EventModal';
 
 class EventShow extends Component {
+    // without state 
     event = null;
     user = null; // "_userInfo" is the id that matches to members' _id inside joined list
 
@@ -16,6 +17,7 @@ class EventShow extends Component {
         this.event = JSON.parse(localStorage.getItem('event'))
         this.user = JSON.parse(localStorage.getItem('user'))
     }
+
     // 1) mount new sate
     componentDidMount() {
         console.log(this.props)
@@ -122,6 +124,7 @@ class EventShow extends Component {
         if (this.event !== this.props.event[0] && this.props.event[0]) {
             eventModal = <EventModal event={this.props.event[0]} color={this.props.event[0].color}message={this.props.event[0].message} />
         }
+        console.log("Current ", this);
 
         return (
             <div className="container show-container">

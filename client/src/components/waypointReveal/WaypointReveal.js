@@ -23,5 +23,4 @@ class WaypointReaveal extends Component {
     }
 }
 
-
 export default WaypointReaveal;
