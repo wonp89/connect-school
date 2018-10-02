@@ -12,11 +12,13 @@ const EventFormReview = ({ onCancel, formValues, submitEvent }) => {
             <div>
                 <label>{label}</label>
                 <div>
-                    {name === "date" 
-                    ? moment(formValues[name]).format('MMMM Do YYYY, h:mm a') 
-                    : name === 'image' //fix if image doesn't exist
-                    ? formValues[name][0].name
-                    : formValues[name]}
+                    {
+                        name === "date"
+                            ? moment(formValues[name]).format('MMMM Do YYYY, h:mm a')
+                            // : name === 'image' //fix if image doesn't exist
+                            //     ? formValues[name][0].name
+                            : formValues[name]
+                    }
                 </div>
             </div>
         )

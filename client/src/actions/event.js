@@ -9,11 +9,11 @@ import { REMOVE_EVENT } from './types';
 import { EXPIRED_EVENTS } from './types';
 
 export const submitEvent = (values) => {
-    const options = formatListing(values);
+    // const options = formatListing(values);
     // console.log(options) will return empty object becasue formatData not stringifyable
     return async dispatch => {
         try {
-            const res = await axios.post('/api/event', options);
+            const res = await axios.post('/api/event', values);
             dispatch({ type: SUBMIT_EVENT, payload: res.data });
         } catch (err) {
             console.log(err);
@@ -23,7 +23,7 @@ export const submitEvent = (values) => {
 
 
 export const fetchEvents = () =>
-    async dispatch => { 
+    async dispatch => {
         try {
             const res = await axios.get('/api/event');
             dispatch({ type: FETCH_EVENTS, payload: res.data });

@@ -27,11 +27,12 @@ class EventList extends Component {
 
     //show expired message  
     componentDidUpdate() {
-         this.props.event.map(event => 
+        this.props.event.map(event =>
             Date.parse(event.date) < new Date() && !event.expired
-            ? this.props.expiredEvents(event._id)
-            : null
-         )}
+                ? this.props.expiredEvents(event._id)
+                : null
+        )
+    }
 
     //Render one or all event 
     renderEvents = () => {
@@ -69,7 +70,7 @@ class EventList extends Component {
                     <i class="right material-icons">create</i>
                 </button>
             )
-        } 
+        }
     }
 
     render() {
@@ -86,3 +87,29 @@ class EventList extends Component {
 const mapStateToProps = ({ event, auth }) => ({ event, auth });
 
 export default connect(mapStateToProps, actions)(EventList);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

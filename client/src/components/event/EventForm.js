@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../../assets/css/EventForm.css';
-import { renderDropdownList, renderInputField, renderDateTimePicker, customFileInput } from './EventFields'
+import { renderDropdownList, renderInputField, renderDateTimePicker } from './EventFields'
 import moment from 'moment'
 import momentLocalizer from 'react-widgets-moment'
 import 'react-widgets/dist/css/react-widgets.css'
@@ -16,7 +16,7 @@ const EventForm = ({ onEventSubmit, handleSubmit, pristine, reset, submitting, f
 
     return (
         <form id="event-form" onSubmit={handleSubmit(values => onEventSubmit())} enctype="multipart/form-data">
-        
+
             <div id="resetButton-container">
                 <button className="red darken-3 white-text btn-flat right" type="button" disabled={pristine || submitting} onClick={reset}>Reset Values
             </button>
@@ -75,13 +75,13 @@ const EventForm = ({ onEventSubmit, handleSubmit, pristine, reset, submitting, f
                 />
             </div>
 
-            <div>
+            {/* <div>
                 <label>Image</label>
                 <Field
                     name="image"
                     type="file"
                     component={customFileInput} />
-            </div>
+            </div> */}
 
             <div id="buttons-container">
                 <Link

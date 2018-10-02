@@ -6,7 +6,7 @@ import { QUIT_EVENT } from '../actions/types';
 import { EXPIRED_EVENTS } from '../actions/types';
 
 export default (state = [], action) => {
-    console.log(action.type)
+    
     switch (action.type) {
         case FETCH_EVENTS || EXPIRED_EVENTS:
             return action.payload;

@@ -6,13 +6,9 @@ export default (state = [], action) => {
     switch (action.type) {
         case FETCH_USER_INFO || EDIT_USER_INFO:
             return action.payload;
+        case REMOVE_EVENT:
+            window.location.assign('/userInfo');
         default:
-            if (action.type === REMOVE_EVENT) {
-                window.location.assign('/userInfo');
-
-                // -------------- need to figure out the ajax way ----------
-                // state = [{userInfo: action.payload}]
-            }
             return state;
     }
 }

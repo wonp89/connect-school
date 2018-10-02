@@ -8,9 +8,9 @@ const EventSchema = new Schema({
     location: String,
     createdBy: String,
     date: Date,
-    image: String,
+    // image: String,
     expired: { type: Boolean, default: false },
-    joined: [{type: Schema.Types.ObjectId, ref: 'UserInfo'}],   
+    joined: [{ type: Schema.Types.ObjectId, ref: 'UserInfo' }],
     posted: Date,
     _creator: { type: Schema.Types.ObjectId, ref: 'UserInfo' }
 });
